@@ -7,7 +7,7 @@ class UserController {
       const users = await UserModel.getAllUsers();
       res.json(users);
     } catch ({ message }) {
-      res.status(500).json({ error: message });
+      res.status(500).json({ error: "Failed to fetch users" });
     }
   }
 
@@ -24,7 +24,7 @@ class UserController {
 
       res.json(user);
     } catch ({ message }) {
-      res.status(500).json({ error: message });
+      res.status(500).json({ error: "Failed to fetch user" });
     }
   }
 
@@ -40,7 +40,7 @@ class UserController {
       const user = await UserModel.createUser(name);
       res.status(201).json(user);
     } catch ({ message }) {
-      res.status(500).json({ error: message });
+      res.status(500).json({ error: "Failed to create user" });
     }
   }
 
@@ -63,7 +63,7 @@ class UserController {
 
       res.json(user);
     } catch ({ message }) {
-      res.status(500).json({ error: message });
+      res.status(500).json({ error: "Failed to update user" });
     }
   }
 
@@ -80,7 +80,7 @@ class UserController {
 
       res.json({ message: 'User deleted successfully' });
     } catch ({ message }) {
-      res.status(500).json({ error: message });
+      res.status(500).json({ error: "Failed to delete user" });
     }
   }
 }
